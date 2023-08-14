@@ -1,0 +1,82 @@
+{%extends 'navigation.html'%}
+{% load static %}
+{% block body %}
+
+{%  if error == "no" %}
+<script>
+    alert('signup Successfully');
+    window.location=('{% url 'user_login' %}');
+</script>
+{%  endif  %}
+
+{%  if error == "yes" %}
+<script>
+    alert('Something Went Wrong, Try Again');
+</script>
+
+{%  endif %}
+
+
+<div class="container mt-5">
+<div class="row">
+    <div class="col-sm-6">
+        <h2 class="text-center"><i class='fas fa-hand-point-right' style='font-size:24px'></i>
+ EXISTING ACCOUNT</h2>
+        <hr>
+        <p>By Creating an account with our Websites, you will be able to move through the  notes uploading and downloading process and more.......</p>
+
+        <center><a href="{% url 'user_login' %}" class="btn btn-danger text-white mt-3">LOGIN AN ACCOUNT.</a></center>
+                <img src ="{% static 'images/signupp.jpg'%}" style="width:100%">
+
+    </div>
+    <div class="col-sm-6">
+        <h2 class="text-center"><i class='fas fa-handshake' style='font-size:24px'></i>
+REGISTER WITH US!</h2>
+        <hr>
+        <P>If you have not an account with us, Please Signup.....</P>
+       <FORM method="post">
+           {% csrf_token %}
+           <label>FirstName </label>
+           <input type ="text" class="form-control" placeholder="Enter FirstName" name="firstname">
+
+           <label>LastName</label>
+           <input type ="text" class="form-control" placeholder="Enter LastName" name="lastname">
+
+           <label>contact</label>
+           <input type ="text" class="form-control" placeholder="Enter Contact" name="contact">
+
+           <label>EmailID</label>
+           <input type ="email" class="form-control" placeholder="Enter EmailID" name="emailid">
+
+           <label>Password</label>
+           <input type ="password" class="form-control" placeholder="Enter Password" name="password">
+
+           <label>Branch</label>
+           <select class="form-control" name="branch">
+               <option value ="computer Science">Computer Science</option>
+               <option value ="Mechanical">Mechanical</option>
+               <option value ="civil">Civil</option>
+               <option value ="Electrical">Electrical</option>
+               <option value ="Electronics">Electronice</option>
+           </select>
+
+           <label>Are you?</label>
+            <select class="form-control" name="role">
+               <option value ="Student">Student</option>
+               <option value ="Teacher">Teacher</option>
+           </select>
+<!--          <center> <input type=" submit" class="btn btn-danger mt-2" value="SIGNUP"></center>-->
+           <input type="submit" class="btn btn-danger mt-2" value="SIGNUP">
+       </FORM>
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+
+{% endblock %}

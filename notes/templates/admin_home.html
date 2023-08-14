@@ -1,0 +1,75 @@
+{% extends 'admin_nav.html'%}
+{% load static %}
+{% block body %}
+
+
+<style>
+.container1{
+background-color:aqua;
+border-radius:10px;
+}
+
+h2,h4{
+padding:10px;
+}
+
+.mydiv:hover{
+transform:translateY(-10px)
+}
+
+</style>
+
+<br>
+<br>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary"><i class='fas fa-folder-open' style='font-size:24px'></i>
+ {{pn}}</h2>
+                <a href="{% url 'pending_notes' %}"><h4 class="text-dark"><i class='fas fa-dot-circle' style='font-size:24px'></i>
+Pending Notes</h4></a>
+            </div>
+        </div>
+
+         <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary"><i class='fas fa-folder-open' style='font-size:24px'></i>
+ {{an}}</h2>
+                <a href="{% url 'accepted_notes' %}"><h4 class="text-dark"><i class='fas fa-check-double' style='font-size:24px'></i>
+Accepted Notes</h4></a>
+            </div>
+        </div>
+
+
+         <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary"><i class='fas fa-folder-open' style='font-size:24px'></i>
+ {{rn}}</h2>
+                <a href="{% url 'rejected_notes' %}"><h4 class="text-dark"><i class='fas fa-times' style='font-size:24px'></i>
+Rejected Notes</h4></a>
+            </div>
+        </div>
+
+         <div class="col-sm-3 text-center mydiv">
+            <div class="container1">
+                <h2 class="text-primary"> <i class='fas fa-folder-open' style='font-size:24px'></i>
+ {{alln}}</h2>
+                <a href="{% url 'all_notes' %}"><h4 class="text-dark"><i class='fas fa-folder' style='font-size:24px'></i>
+All Notes</h4></a>
+            </div>
+        </div>
+
+    </div>
+                    <img src ="{% static 'images/ad_home.jpg'%}" style="width:100%">
+
+</div>
+
+
+<footer class="container mt-1 text-center">
+    <p style="font-size:30pt; color:blue; font-weight:bold"> Copyright &copy; <script>document.write(new Date().getFullYear());</script> All Rights Reserved.</p>
+</footer>
+
+
+{% endblock %}

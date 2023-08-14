@@ -1,0 +1,57 @@
+{%extends 'navigation.html'%}
+{% load static %}
+{% block body %}
+
+{%  if error == "no" %}
+<script>
+    alert('Logged IN Successfully');
+    window.location=('{% url 'profile' %}');
+</script>
+{%  endif  %}
+
+{%  if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials, Try Again');
+</script>
+
+{%  endif %}
+
+<div class="container mt-3">
+<div class="row">
+    <div class="col-sm-6">
+        <img src ="{% static 'images/loginn.jpg'%}" style="width:100%">
+    </div>
+    <div class="col-sm-6">
+        <h2 class="text-center"><i class='fas fa-tv' style='font-size:24px'></i> USER LOGIN</h2>
+        <hr>
+       <FORM method="post">
+           {% csrf_token %}
+           <label>Email Address</label>
+           <input type ="email" class="form-control" placeholder="Enter EmailID" name="email">
+
+           <label>Password</label>
+           <input type ="password" class="form-control" placeholder="Enter Password" name="pwd">
+
+           <input type="submit" class="btn btn-danger mt-2"value = "Login">
+
+
+<!--          <center> <input type=" submit" class="btn btn-danger mt-2" value="LOGIN"></center>-->
+            <h2 class="text-center"><i class='fas fa-handshake' style='font-size:24px'></i>
+NEW CUSTOMERS</h2>
+        <hr>
+        <p>By Creating an account with our Websites, you will be able to move through the  notes uploading and downloading process and more.......</p>
+
+        <center><a href="{% url 'signup1' %}" class="btn btn-success text-white mt-3">CREATE AN ACCOUNT.</a></center>
+
+       </FORM>
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

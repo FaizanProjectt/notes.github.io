@@ -1,0 +1,56 @@
+{%extends 'navigation.html'%}
+{% load static %}
+{% block body %}
+
+
+{%  if error == "no" %}
+<script>
+    alert('Logged IN Successfully');
+    window.location=('{% url 'admin_home' %}');
+</script>
+{%  endif  %}
+
+{%  if error == "yes" %}
+<script>
+    alert('Invalid Login Credentials, Try Again');
+</script>
+
+{%  endif %}
+
+
+<div class="container mt-5" style="background-color:whitesmoke">
+<div class="row">
+    <div class="col-sm-6">
+       <img src="{% static 'images/admin1.png' %}" class="img-thumbnail my-2" style="width:100%;height:345px">
+    </div>
+    <div class="col-sm-6 mt-2">
+        <h2 class="text-center"><i class='fas fa-portrait' style='font-size:30px'></i>
+ADMIN LOGIN</h2>
+         <hr>
+        <p CLASS="text-center">Enter Your Username and Password for access Admin Panel.</p>
+
+       <FORM method="post">
+           {% csrf_token %}
+           <label><i class='fas fa-envelope-open' style='font-size:24px'></i>
+Username</label>
+           <input type ="text" class="form-control" placeholder="Enter Username" name="uname">
+
+           <label><i class='fas fa-edit' style='font-size:22px'></i>
+Password</label>
+           <input type ="password" class="form-control" placeholder="Enter Password" name="pwd">
+
+           <input type="submit" class="btn btn-danger mt-2" value="Login">
+<!--           <input type=" submit" class="btn btn-success mt-2" value="LOGIN">-->
+
+       </FORM>
+
+    </div>
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}
